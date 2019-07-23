@@ -1,3 +1,3 @@
 output "config" {
-    value = "~/.kube/ocp-ibm-96274e13/config"
+    value = "${pathexpand("~/.kube/${var.cluster_name}/config")}"
 }
