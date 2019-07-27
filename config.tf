@@ -1,7 +1,7 @@
 resource "null_resource" "copy_config_bastion" {
     connection {
         type = "ssh"
-        user = "root"
+        user = "${var.ssh_username}"
         host = "${var.bastion_ip_address}"
         private_key = "${file(var.bastion_private_ssh_key)}"
     }
@@ -17,7 +17,7 @@ resource "null_resource" "copy_config_bastion" {
 resource "null_resource" "copy_config_localhost" {
     connection {
         type = "ssh"
-        user = "root"
+        user = "${var.ssh_username}"
         host = "${var.bastion_ip_address}"
         private_key = "${file(var.bastion_private_ssh_key)}"
     }
@@ -35,7 +35,7 @@ resource "null_resource" "copy_config_localhost" {
 resource "null_resource" "create_cluster_admin" {
     connection {
         type = "ssh"
-        user = "root"
+        user = "${var.ssh_username}"
         host = "${var.bastion_ip_address}"
         private_key = "${file(var.bastion_private_ssh_key)}"
     }
