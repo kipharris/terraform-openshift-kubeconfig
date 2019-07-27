@@ -24,7 +24,7 @@ resource "null_resource" "copy_config_localhost" {
 
     provisioner "local-exec" {
         when = "create"
-        command = "mkdir -p ~/.kube/${var.cluster_name} && scp -o \"StrictHostKeyChecking=no\" -i ${var.bastion_private_ssh_key} root@${var.bastion_ip_address}:./config ~/.kube/${var.cluster_name}/",
+        command = "mkdir -p ~/.kube/${var.cluster_name} && scp -o \"StrictHostKeyChecking=no\" -i ${var.bastion_private_ssh_key} ${var.ssh_username}@${var.bastion_ip_address}:./config ~/.kube/${var.cluster_name}/",
     }
 
     depends_on = [
