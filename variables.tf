@@ -7,7 +7,3 @@ variable "cluster_name" {}
 variable "ssh_username" {
     default = "root"
 }
-variable "dependencies" {
-    type = "list"
-    default = []
-}
