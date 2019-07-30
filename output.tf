@@ -3,6 +3,7 @@ output "config" {
 }
 
 resource "random_id" "completed" {
+    byte_length = 1
     depends_on = [
         "null_resource.create_cluster_admin",
     ]
